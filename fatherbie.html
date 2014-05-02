@@ -1,0 +1,58 @@
+!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+	var imgObj = null;
+
+	function init() {
+		imgObj = document.getElementById('myImage');
+		imgObj.style.position= 'relative'; 
+		imgObj.style.left = '0px'; 
+		start();
+	}
+
+	function moveRight() {
+		imgObj.style.left = parseInt(imgObj.style.left) + 5 + 'px';
+	}
+	function moveLeft() {
+		imgObj.style.left = parseInt(imgObj.style.left) - 5 + 'px';
+	}
+
+	var i = 0;
+	blah = function() {
+		i += 1;
+		if (i === 180) {
+			clearInterval(timerRight);
+			start2();
+		}
+		j=0
+		moveRight();
+	}
+
+	var j = 0;
+	blah2 = function() {
+		j += 1;
+		if (j === 180) {
+			clearInterval(timerLeft);
+			start();
+		}
+		i=0
+		moveLeft();
+	}
+
+	function start () {
+		timerRight = setInterval(blah, 10);
+	}
+	
+
+
+	function start2 () {
+		timerLeft = setInterval(blah2, 10);
+	}window.onload = init;
+</script>/head>
+<body>
+	<img id = 'myImage' src="https://camo.githubusercontent.com/56a9cd8b7e9ebbdcc75dc7baf56986a08650f50d/687474703a2f2f74686573656172657468696e67732e636f6d2f776f726b2f686174657273676f6e6e61686174652f696d672f686174657273676f6e6e61686174652d30312e676966">
+</body>
+</html>
