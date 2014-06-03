@@ -16,6 +16,11 @@ end
 # 	end
 # 	return true
 # end	
+def reverse_and_add(number)
+  number.to_s == number.to_s.reverse ? number : reverse_and_add(number + number.to_s.reverse.to_i) 
+end
+
+puts reverse_and_add(195)
 
 puts is_palindrome("1dod1")
 puts is_palindrome("dod")

@@ -1,8 +1,9 @@
-function factorial(num) {
-	var result = 1;
-		for (var i=num; i>0; i--) {
-	  var result = result * i;
-		};
-		return result;
+function change(change_amount) {
+	var fives = change_amount % 5;
+	var threes = changee_amount % 3;
+	var ones = change_amount % 1;
+	console.log(fives);
+	console.log(fives);
+	console.log(fives);	
 };
-factorial(4)
+change(20)
