@@ -1,7 +1,7 @@
 def mixletters(paragraph)
 	array1 = paragraph.split(" ")
   array1.each_with_index do |word, index|  
-    word.length > 1 : array1[index] = word[0] + word[1...-1].split("").shuffle.join + word[word.length-1] : word
+    word.length > 3 ? array1[index] = word[0] + word[1...-1].split("").shuffle.join + word[word.length-1] : word
   end
   return array1.join(" ")
 end
