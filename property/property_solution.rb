@@ -33,35 +33,28 @@ end
 solution = []
 searches.each do |search|
   properties.each do |property|
+    premium = 0
     if ((property[2].to_f - search[2].to_f).abs < 1) && ((property[1].to_f - search[1].to_f).abs < 1) 
       beginning_date = DateTime.parse(search[3])
       end_date = DateTime.parse(search[4])
       exclusions = []
       exclusion_status = false
-        if calendar_hash[property[0]] != nil 
-          calendar_hash[property[0]].each do |exclusion|
-             if date_lies_between(exclusion[1], beginning_date, end_date) 
-               puts true
-               exclusion_status = true
-                if exclusion[2].to_i==0
-                 puts "0"
-                else
-                 puts "1"
-                end
-             else
-               #puts false
-             end
-          end
+      if calendar_hash[property[0]] != nil 
+        calendar_hash[property[0]].each do |exclusion|
+           if date_lies_between(exclusion[1], beginning_date, end_date) && exclusion[2].to_i==0
+             #puts "Property not available"
+           elsif date_lies_between(exclusion[1], beginning_date, end_date) && exclusion[2].to_i==1
+             premium += exclusion[3].to_i - property[3].to_i
+           else
+             #puts "Just add the property normally"
+           end
         end
-      if search_hash[search[0]] == nil
-        solution.push [search[0], property[0], (end_date - beginning_date).to_f * property[3].to_f]  
-      else
-        solution.push [search[0], property[0], (end_date - beginning_date).to_f * property[3].to_f]  
       end
+    solution.push [search[0].to_i, 1, property[0].to_i,  (end_date - beginning_date).to_i * property[3].to_i + premium]  
     end
   end
 end
-#p solution
+p solution
 end
 
 closest_properties 
