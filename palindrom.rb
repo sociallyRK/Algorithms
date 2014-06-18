@@ -11,6 +11,5 @@ end
 
 puts PalindromeSeq ("hello")
 puts PalindromeSeq ("bob")
-puts PalindromeSeq ("fuckyou")
 puts PalindromeSeq ("imma")
 puts PalindromeSeq ("annammmmmmaddera")
